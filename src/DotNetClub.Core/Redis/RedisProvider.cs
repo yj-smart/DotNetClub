@@ -7,13 +7,15 @@ using System.Net;
 namespace DotNetClub.Core.Redis
 {
     /// <summary>
-    /// 
+    /// Redis提供程序
     /// </summary>
     public sealed class RedisProvider : IRedisProvider, IDisposable
     {
         private static readonly object _sync = new object();
 
         private ConnectionMultiplexer _pool;
+
+        private IOptions<RedisOptions> RedisOptions { get; set; }
 
         private ConnectionMultiplexer Pool
         {
@@ -34,10 +36,8 @@ namespace DotNetClub.Core.Redis
             }
         }
 
-        private IOptions<RedisOptions> RedisOptions { get; set; }
-
         /// <summary>
-        /// 
+        /// 构造函数
         /// </summary>
         /// <param name="redisOptions"></param>
         public RedisProvider(IOptions<RedisOptions> redisOptions)
@@ -46,7 +46,7 @@ namespace DotNetClub.Core.Redis
         }
 
         /// <summary>
-        /// 
+        /// 销毁
         /// </summary>
         public void Dispose()
         {
@@ -57,7 +57,7 @@ namespace DotNetClub.Core.Redis
         }
 
         /// <summary>
-        /// 
+        /// 获取数据库
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace DotNetClub.Core.Redis
         }
 
         /// <summary>
-        /// 
+        /// 获取服务器
         /// </summary>
         /// <param name="endPoint"></param>
         /// <returns></returns>
@@ -81,6 +81,9 @@ namespace DotNetClub.Core.Redis
             return Pool.GetServer(endPoint);
         }
 
+        /// <summary>
+        /// 连接
+        /// </summary>
         private void Connect()
         {
             var configuration = new ConfigurationOptions
@@ -97,7 +100,7 @@ namespace DotNetClub.Core.Redis
         }
 
         /// <summary>
-        /// 
+        /// 获取选项
         /// </summary>
         /// <returns></returns>
         public RedisOptions GetOptions()

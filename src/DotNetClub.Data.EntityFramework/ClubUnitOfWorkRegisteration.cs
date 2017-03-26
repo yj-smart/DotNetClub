@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DotNetClub.Data.EntityFramework.Context;
+using DotNetClub.Domain.Consts;
+using Shared.Infrastructure.UnitOfWork.EntityFramework;
 using System.Reflection;
-using System.Text;
 
 namespace DotNetClub.Data.EntityFramework
 {
-    public class ClubUnitOfWorkRegisteration : Shared.Infrastructure.UnitOfWork.EntityFramework.UnitOfWorkRegisteration<Context.ClubContext>
+    /// <summary>
+    /// 工作单元注册
+    /// </summary>
+    public class ClubUnitOfWorkRegisteration : UnitOfWorkRegisteration<ClubContext>
     {
-        public override string Name => Domain.Consts.UnitOfWorkNames.EntityFramework;
+        public override string Name => UnitOfWorkNames.EntityFramework;
 
         public override Assembly[] EntityAssemblies => new Assembly[] { Assembly.Load(new AssemblyName("DotNetClub.Domain")) };
 

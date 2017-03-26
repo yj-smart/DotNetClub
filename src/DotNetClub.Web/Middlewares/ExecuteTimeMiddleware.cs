@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using System.IO;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace DotNetClub.Web.Middlewares
 {
-    // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
+    /// <summary>
+    /// 执行时间中间件
+    /// </summary>
     public class ExecuteTimeMiddleware
     {
         private readonly RequestDelegate _next;

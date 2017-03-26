@@ -2,18 +2,21 @@
 using DotNetClub.Core.Model.Configuration;
 using DotNetClub.Core.Model.Topic;
 using DotNetClub.Core.Model.User;
+using DotNetClub.Core.Redis;
 using DotNetClub.Core.Service;
 using DotNetClub.Domain.Consts;
 using DotNetClub.Domain.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using DotNetClub.Core.Redis;
 using System;
 using System.Linq;
 
 namespace DotNetClub.Core.Security
 {
+    /// <summary>
+    /// 安全管理
+    /// </summary>
     public sealed class SecurityManager
     {
         private const string TOKEN_KEY = "token";
@@ -22,13 +25,26 @@ namespace DotNetClub.Core.Security
 
         private bool _loaded = false;
 
+        private long? _unreadMessages;
+
+        private long _userID;
+
+        private UserModel _user;
+
+        private IOptions<SiteConfiguration> _siteConfigurationAccessor;
+
+        public string Token { get; private set; }
+
         private IServiceProvider ServiceProvider { get; set; }
 
+        /// <summary>
+        /// HttpContextAccessor访问器
+        /// </summary>
         private IHttpContextAccessor HttpContextAccessor
         {
             get
             {
-                return this.ServiceProvider.GetService<IHttpContextAccessor>();
+                return ServiceProvider.GetService<IHttpContextAccessor>();
             }
         }
 
@@ -36,11 +52,9 @@ namespace DotNetClub.Core.Security
         {
             get
             {
-                return this.ServiceProvider.GetService<IRedisProvider>();
+                return ServiceProvider.GetService<IRedisProvider>();
             }
         }
-
-        private IOptions<SiteConfiguration> _siteConfigurationAccessor;
 
         private SiteConfiguration SiteConfiguration
         {
@@ -49,10 +63,6 @@ namespace DotNetClub.Core.Security
                 return _siteConfigurationAccessor.Value;
             }
         }
-
-        private long _userID;
-
-        private UserModel _user;
 
         public UserModel CurrentUser
         {
@@ -74,8 +84,6 @@ namespace DotNetClub.Core.Security
             }
         }
 
-        public string Token { get; private set; }
-
         public bool IsLogin
         {
             get
@@ -91,8 +99,6 @@ namespace DotNetClub.Core.Security
                 return this.IsLogin && this.SiteConfiguration.AdminUserList?.Contains(this.CurrentUser.UserName) == true;
             }
         }
-
-        private long? _unreadMessages;
 
         public long UnreadMessages
         {
@@ -189,6 +195,9 @@ namespace DotNetClub.Core.Security
             return false;
         }
 
+        /// <summary>
+        /// 加载用户
+        /// </summary>
         private void LoadUser()
         {
             this.InitToken();

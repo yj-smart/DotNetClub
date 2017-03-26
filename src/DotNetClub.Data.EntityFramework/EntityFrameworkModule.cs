@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using System.Reflection;
 
 namespace DotNetClub.Data.EntityFramework
 {
+    /// <summary>
+    /// EntityFramework模块
+    /// </summary>
     public class EntityFrameworkModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)

@@ -1,5 +1,8 @@
 ﻿namespace DotNetClub.Core.Redis
 {
+    /// <summary>
+    /// Redis选项
+    /// </summary>
     public class RedisOptions
     {
         /// <summary>

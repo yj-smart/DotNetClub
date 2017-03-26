@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Microsoft.AspNetCore.Http;
 using System.Reflection;
 
 namespace DotNetClub.Core
 {
+    /// <summary>
+    /// 核心模块
+    /// </summary>
     public class CoreModule : Autofac.Module
     {
         protected override void Load(ContainerBuilder builder)

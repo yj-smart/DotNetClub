@@ -4,7 +4,7 @@ using System.Net;
 namespace DotNetClub.Core.Redis
 {
     /// <summary>
-    /// 
+    /// IRedisProvider提供程序
     /// </summary>
     public interface IRedisProvider
     {

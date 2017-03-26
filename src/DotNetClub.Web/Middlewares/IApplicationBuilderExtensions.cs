@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetClub.Web.Middlewares
 {
+    /// <summary>
+    /// IApplicationBuilder扩展
+    /// </summary>
     public static class IApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseExecuteTime(this IApplicationBuilder app)
         {
+            //向应用程序的请求管道添加中间件类型
             return app.UseMiddleware<ExecuteTimeMiddleware>();
         }
     }

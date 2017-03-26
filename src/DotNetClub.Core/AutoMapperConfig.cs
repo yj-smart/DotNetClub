@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using DotNetClub.Domain.Entity;
-using DotNetClub.Core.Model.User;
+﻿using AutoMapper;
 using DotNetClub.Core.Model.Topic;
+using DotNetClub.Core.Model.User;
+using DotNetClub.Domain.Entity;
 
 namespace DotNetClub.Core
 {
+    /// <summary>
+    /// AutoMapper配置
+    /// </summary>
     public sealed class AutoMapperConfig
     {
         public static void Configure()
