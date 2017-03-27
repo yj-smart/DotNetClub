@@ -4,39 +4,39 @@
 <visible condition="Model.Count > 0">
     @foreach (var topic in Model)
     {
-    <div class="cell">
-        <a class="pull-left" asp-action="Index" asp-controller="User" asp-route-userName="@topic.CreateUser.UserName">
-            <useravatar email="@topic.CreateUser.Email" title="@topic.CreateUser.UserName" size="28"></useravatar>
-        </a>
+        <div class="cell">
+            <a class="pull-left" asp-action="Index" asp-controller="User" asp-route-userName="@topic.CreateUser.UserName">
+                <useravatar email="@topic.CreateUser.Email" title="@topic.CreateUser.UserName" size="28"></useravatar>
+            </a>
 
-        <span class="text-muted pull-left reply-count">
-            <small class="text-info">@topic.Comments</small>
-            <span class="text-muted reply-seperator">/</span>
-            <small class="text-muted">@topic.Visits</small>
-        </span>
+            <span class="text-muted pull-left reply-count">
+                <small class="text-info">@topic.Comments</small>
+                <span class="text-muted reply-seperator">/</span>
+                <small class="text-muted">@topic.Visits</small>
+            </span>
 
-        <span class="category pull-left">
-            <span class="recommand" condition="topic.IsTop">置顶</span>
+            <span class="category pull-left">
+                <span class="recommand" condition="topic.IsTop">置顶</span>
 
-            <span class="recommand" condition="topic.IsRecommand">精华</span>
+                <span class="recommand" condition="topic.IsRecommand">精华</span>
 
-            <span condition="!topic.IsTop && !topic.IsRecommand">@topic.Category.Name</span>            
-        </span>
+                <span condition="!topic.IsTop && !topic.IsRecommand">@topic.Category.Name</span>
+            </span>
 
-        <a class="pull-right last-reply text-muted" asp-action="Index" asp-controller="Topic" asp-route-id="@topic.ID" asp-fragment="@(topic.LastReplyUser != null ? "latest" : "")">
-            <visible condition="topic.LastReplyUser != null">
-                <useravatar title="@topic.LastReplyUser.UserName" size="18" email="@topic.LastReplyUser.Email"></useravatar>
-            </visible>
+            <a class="pull-right last-reply text-muted" asp-action="Index" asp-controller="Topic" asp-route-id="@topic.ID" asp-fragment="@(topic.LastReplyUser != null ? "latest" : "")">
+                <visible condition="topic.LastReplyUser != null">
+                    <useravatar title="@topic.LastReplyUser.UserName" size="18" email="@topic.LastReplyUser.Email"></useravatar>
+                </visible>
 
-            <small>
-                @(topic.CreateDate.Humanize(utcDate: false))
-            </small>
-        </a>
+                <small>
+                    @(topic.CreateDate.Humanize(utcDate: false))
+                </small>
+            </a>
 
-        <div class="text-nowrap topic-title-wrapper">
-            <a asp-action="Index" asp-controller="Topic" asp-route-id="@topic.ID" class="topic-title">@topic.Title</a>
+            <div class="text-nowrap topic-title-wrapper">
+                <a asp-action="Index" asp-controller="Topic" asp-route-id="@topic.ID" class="topic-title">@topic.Title</a>
+            </div>
         </div>
-    </div>
     }
 </visible>
 <visible condition="Model.Count == 0">

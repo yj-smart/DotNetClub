@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetClub.Core.Service
 {
@@ -38,7 +37,7 @@ namespace DotNetClub.Core.Service
 
         public CategoryModel Get(string key)
         {
-            return this.All().SingleOrDefault(t => t.Key == key);
+            return All().SingleOrDefault(t => t.Key == key);
         }
     }
 }

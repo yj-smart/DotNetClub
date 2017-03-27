@@ -4,7 +4,7 @@
 @model List<MessageModel>
 
 <visible condition="Model.Count > 0">
-    @foreach(var message in Model)
+    @foreach (var message in Model)
     {
         <div class="cell">
             <visible condition="message.Type == MessageType.At">

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using CommonMark;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using CommonMark;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.Threading.Tasks;
 
 namespace DotNetClub.Web.TagHelpers
 {

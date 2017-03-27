@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using System;
 
 namespace DotNetClub.Web.TagHelpers
 {
@@ -28,7 +24,7 @@ namespace DotNetClub.Web.TagHelpers
 
         public override void Init(TagHelperContext context)
         {
-            if(!this.Date.HasValue)
+            if (!this.Date.HasValue)
             {
                 throw new ArgumentNullException("Date");
             }

@@ -5,19 +5,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DotNetClub.Web.Controllers
 {
-    public class HomeController : Base.ControllerBase
+    public class HomeController : ControllerBase
     {
         private static readonly string TAB_RECOMMAND = "recommand";
 
         private CategoryService CategoryService { get; set; }
 
         private TopicService TopicService { get; set; }
-        
+
         private ILogger<HomeController> Logger { get; set; }
 
         public HomeController(CategoryService categoryService, TopicService topicService, ILogger<HomeController> logger)
@@ -42,7 +41,7 @@ namespace DotNetClub.Web.Controllers
             vm.TabList.Add(new SelectListItem { Text = "全部", Value = "", Selected = string.IsNullOrWhiteSpace(tab) });
             vm.TabList.Add(new SelectListItem { Text = "精华", Value = TAB_RECOMMAND, Selected = string.Equals(tab, TAB_RECOMMAND, StringComparison.OrdinalIgnoreCase) });
 
-            var categoryList = this.CategoryService.All();
+            var categoryList = CategoryService.All();
             foreach (var categoryModel in categoryList)
             {
                 vm.TabList.Add(new SelectListItem { Text = categoryModel.Name, Value = categoryModel.Key, Selected = string.Equals(categoryModel.Key, tab, StringComparison.OrdinalIgnoreCase) });

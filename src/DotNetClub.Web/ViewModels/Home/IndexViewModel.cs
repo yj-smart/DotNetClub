@@ -1,12 +1,7 @@
-﻿using DotNetClub.Domain.Model;
-using DotNetClub.Core.Model.Category;
-using DotNetClub.Core.Model.Topic;
+﻿using DotNetClub.Core.Model.Topic;
+using DotNetClub.Domain.Model;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Shared.Infrastructure.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetClub.Web.ViewModels.Home
 {

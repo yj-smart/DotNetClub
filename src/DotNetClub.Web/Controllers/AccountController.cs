@@ -1,15 +1,8 @@
-﻿using DotNetClub.Core;
-using DotNetClub.Core.Model.Auth;
+﻿using DotNetClub.Core.Model.Auth;
 using DotNetClub.Core.Resource;
 using DotNetClub.Core.Service;
 using DotNetClub.Web.ViewModels.Account;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace DotNetClub.Web.Controllers

@@ -1,8 +1,5 @@
 ﻿using DotNetClub.Core.Service;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DotNetClub.Web.ViewComponents
@@ -18,7 +15,7 @@ namespace DotNetClub.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(int count)
         {
-            if(count < 1)
+            if (count < 1)
             {
                 count = 10;
             }

@@ -1,10 +1,6 @@
-﻿using DotNetClub.Core.Model.Category;
-using DotNetClub.Core.Model.Comment;
+﻿using DotNetClub.Core.Model.Comment;
 using DotNetClub.Core.Model.Topic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DotNetClub.Web.ViewModels.Topic
 {

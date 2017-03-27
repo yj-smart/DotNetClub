@@ -1,22 +1,20 @@
-﻿using DotNetClub.Domain.Entity;
+﻿using AutoMapper;
+using DotNetClub.Core.Model.Category;
+using DotNetClub.Core.Model.Topic;
+using DotNetClub.Core.Model.User;
+using DotNetClub.Core.Redis;
+using DotNetClub.Domain.Consts;
+using DotNetClub.Domain.Entity;
+using DotNetClub.Domain.Model;
+using DotNetClub.Domain.Repository;
+using Shared.Infrastructure.Extensions;
+using Shared.Infrastructure.Model;
+using Shared.Infrastructure.UnitOfWork;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
-using DotNetClub.Core.Model.Topic;
-using Shared.Infrastructure.UnitOfWork;
-using Shared.Infrastructure.Model;
-using Shared.Infrastructure.Extensions;
-using DotNetClub.Domain.Repository;
-using DotNetClub.Domain.Consts;
-using DotNetClub.Core.Redis;
-using StackExchange.Redis;
-using DotNetClub.Core.Model.Category;
-using AutoMapper;
-using DotNetClub.Core.Model.User;
-using DotNetClub.Domain.Model;
 
 namespace DotNetClub.Core.Service
 {

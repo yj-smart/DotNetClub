@@ -1,15 +1,11 @@
-﻿using DotNetClub.Core;
-using DotNetClub.Core.Model;
-using DotNetClub.Core.Resource;
+﻿using DotNetClub.Core.Model;
+using DotNetClub.Core.Model.User;
 using DotNetClub.Core.Service;
+using DotNetClub.Web.ViewModels.My;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Filters;
-using DotNetClub.Core.Model.User;
-using DotNetClub.Web.ViewModels.My;
 
 namespace DotNetClub.Web.Controllers
 {
